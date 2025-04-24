@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Outer Circle (Coin) -->
+    <path
+        android:fillColor="#00695C"
+        android:pathData="M50,50 m-40,0 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0" />
+
+    <!-- Inner Wave Design -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M30,50 Q50,30 70,50 Q50,70 30,50 Z" />
+
+    <!-- Small Circle in the Center -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,50 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0" />
+</vector>

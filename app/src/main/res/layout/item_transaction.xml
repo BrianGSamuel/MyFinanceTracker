@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="transaction"
+            type="com.example.financetracker.Transaction" />
+        <variable
+            name="viewModel"
+            type="com.example.financetracker.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Transaction Item">
+
+        <ImageView
+            android:id="@+id/ivCategoryIcon"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center_vertical"
+            android:padding="1dp"
+            android:background="@drawable/square_background"
+            android:contentDescription="Category Icon"
+            app:categoryIcon="@{transaction.category}" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{transaction.title}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#3F51B5"
+                android:contentDescription="Transaction Title"/>
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.formatDate(transaction.date)}"
+                android:textSize="14sp"
+                android:textColor="#777777"
+                android:layout_marginTop="4dp"
+                android:contentDescription="Transaction Date"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:text="@{viewModel.formatAmount(transaction.amount)}"
+            android:textColor="@{transaction.type.equals(`income`) ? @color/income_color : @color/expense_color}"
+            android:contentDescription="Transaction Amount"/>
+    </LinearLayout>
+</layout>
